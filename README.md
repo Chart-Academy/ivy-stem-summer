@@ -11,15 +11,12 @@ Live site: https://chart-academy.github.io/ivy-stem-summer/
 3. Open **Settings → Pages**. Under **Build and deployment**, set **Source** to **Deploy from a branch**, choose the **main** branch and the **/ (root)** folder, and click **Save**.
 4. After a minute or two, the site is live at `https://<your-github-username>.github.io/ivy-stem-summer/`.
 
-## Add the application link
+## Interest form
 
-When the online interest form or application is ready (Google Form, Microsoft Form or another service), open `index.html`, find this line near the bottom:
+Students sign up through a Smartsheet form (workspace "Ivy League STEM Summer 2027", sheet "Student Interest Form Responses"):
+https://app.smartsheet.com/b/form/01a19daaa76a7561aaa3f2e62842bfca
 
-```js
-var INTEREST_FORM_URL = "";
-```
-
-Paste the form's link between the quotes and commit the change. Every "Check eligibility" and "Applications open soon" button will then open the form.
+The link is set in `INTEREST_FORM_URL` near the bottom of `index.html`. Every "Check eligibility" and "Applications open soon" button opens the form as "Complete the interest form". Clear the link to switch the buttons back.
 
 ## Pages
 

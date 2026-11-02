@@ -613,7 +613,7 @@ details.week[open] summary::after{content:"+";transform:rotate(45deg);background
     <details><summary>Who can join the tour?</summary><p>One parent or legal guardian per student. Let us know early so we can plan bus seats and hotel rooms.</p></details>
     <details><summary>Do I have to come?</summary><p>No. Parent participation is optional. Students who travel without a parent are supervised by program staff at all times, and all staff are background-checked.</p></details>
     <details><summary>Does my student need to be in SYEP?</summary><p>Yes. Every student must apply to DC's Summer Youth Employment Program at <a href="https://summerjobs.dc.gov" target="_blank" rel="noopener">summerjobs.dc.gov</a> and be found eligible. Students under 18 need a parent's consent, so please help your student gather their documents and finish the SYEP application before it closes.</p></details>
-    <details><summary>Where will we stay?</summary><p>Each parent shares a hotel room with their own student. Students traveling without a parent room with other students of the same gender, with staff on the same floor.</p></details>
+    <details><summary>Where will we stay?</summary><p>Each parent shares a hotel room with their own student. Students traveling without a parent have a hotel room of their own.</p></details>
     <details><summary>What does my student need to do to attend the tour?</summary><p>The tour is part of a six-week program. Students are expected to take part in the exposure weeks and the internship week before the tour, and in the application preparation that follows.</p></details>
     <details><summary>How do I stay updated?</summary><p>Families receive a full itinerary, packing list and emergency contacts before the tour, plus updates during the trip.</p></details>
   </div>
@@ -877,8 +877,8 @@ details.week[open] summary::after{content:"+";transform:rotate(45deg);background
 
 <script>
 (function(){
-  /* Paste the online interest form or application link here when it is ready. */
-  var INTEREST_FORM_URL = "";
+  /* Student interest form (Smartsheet, "Ivy League STEM Summer 2027" workspace). */
+  var INTEREST_FORM_URL = "https://app.smartsheet.com/b/form/01a19daaa76a7561aaa3f2e62842bfca";
 
   /* Paste each testimonial's YouTube link here (any youtube.com or youtu.be link works). */
   var VIDEOS = { nyc: "https://youtu.be/o2EgdKWCTg8", gatech: "https://youtu.be/ZeWgE3yX7mI" };
@@ -908,7 +908,7 @@ details.week[open] summary::after{content:"+";transform:rotate(45deg);background
 
   if (INTEREST_FORM_URL){
     document.querySelectorAll(".js-interest").forEach(function(a){
-      a.href = INTEREST_FORM_URL; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Apply now";
+      a.href = INTEREST_FORM_URL; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Complete the interest form";
     });
   }
 
