@@ -204,23 +204,35 @@ footer{border-top:1px solid var(--line);background:var(--surface);padding-block:
 footer .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;color:var(--muted);font-size:15px}
 footer b{color:var(--ink);font-family:var(--display);font-size:17px}
 
-/* week boxes (home) */
-.weeks{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
-@media (max-width:760px){.weeks{grid-template-columns:1fr}}
-details.week{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:0;transition:border-color .2s, box-shadow .2s}
-details.week:hover{border-color:var(--blue)}
-details.week[open]{border-color:var(--blue);box-shadow:0 10px 30px -18px rgba(21,27,51,.45)}
-details.week summary{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:22px 22px;font:inherit}
+/* video testimonials (home) */
+.videos{display:grid;gap:18px;padding-top:40px}
+.videos[hidden]{display:none}
+.video-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:760px){.video-row{grid-template-columns:1fr}}
+.video-row figure{margin:0;display:grid;gap:10px}
+.video-frame{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#0E1326;box-shadow:0 14px 34px -22px rgba(21,27,51,.6)}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-row figcaption{font:700 1.05rem/1.3 var(--display)}
+.video-row figcaption small{display:block;font:400 14.5px/1.4 var(--body);color:var(--muted);margin-top:2px}
+
+/* week accordion (home): one list, one row open at a time */
+.weeks{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+details.week{border:0;border-top:1px solid var(--line);padding:0;transition:background .2s}
+details.week:first-child{border-top:0}
+details.week:hover{background:color-mix(in srgb, var(--blue-soft) 45%, transparent)}
+details.week[open]{background:var(--blue-soft)}
+details.week summary{display:grid;grid-template-columns:52px 1fr auto;gap:16px;align-items:center;padding:16px 22px;font:inherit}
 details.week summary::-webkit-details-marker{display:none}
-details.week summary::after{content:"+";width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--red-soft);color:var(--red);font:700 22px/1 var(--body);transition:transform .25s}
-details.week[open] summary::after{content:"+";transform:rotate(45deg)}
-.wk-num{font:800 44px/0.9 var(--display);color:var(--blue)}
-.wk-head{display:grid;gap:5px;min-width:0}
-.wk-head .when{font:700 12.5px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
-.wk-head b{font:800 1.3rem/1.15 var(--display)}
-.wk-head small{color:var(--muted);font-size:15px;line-height:1.45}
-.wk-body{padding:0 22px 24px;border-top:1px dashed var(--line);margin:0 22px;padding-inline:0;padding-top:16px;animation:drop .3s ease}
-.wk-body p{color:var(--muted);margin:0;max-width:none}
+details.week summary::after{content:"+";width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--red-soft);color:var(--red);font:700 20px/1 var(--body);transition:transform .25s}
+details.week[open] summary::after{content:"+";transform:rotate(45deg);background:var(--red);color:#fff}
+.wk-num{font:800 30px/1 var(--display);color:var(--blue)}
+.wk-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;min-width:0}
+.wk-head .when{font:700 12.5px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--red);min-width:14em}
+.wk-head b{font:800 1.2rem/1.2 var(--display)}
+.wk-head small{display:none}
+.wk-body{padding:0 22px 22px 90px;animation:drop .3s ease}
+@media (max-width:640px){.wk-body{padding-left:22px}.wk-head .when{min-width:0;width:100%}}
+.wk-body p{color:var(--muted);margin:0;max-width:72ch}
 .wk-body ul{margin:10px 0 0;padding-left:20px;color:var(--muted)}
 .wk-body li{margin:5px 0}
 @keyframes drop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
@@ -321,6 +333,13 @@ details.week[open] summary::after{content:"+";transform:rotate(45deg)}
 <!-- ================= HOME ================= -->
 <section class="page" id="page-home" data-page="home">
 <div class="wrap">
+  <div class="videos" id="videos" hidden>
+    <div class="sec-head"><p class="eyebrow">Hear from our students</p><h2>Pathways to STEM in action</h2></div>
+    <div class="video-row">
+      <figure><div class="video-frame" data-video="nyc"></div><figcaption>New York City visit<small>2026 Chart Academy Pathways to STEM</small></figcaption></figure>
+      <figure><div class="video-frame" data-video="gatech"></div><figcaption>Georgia Tech visit<small>Chart Academy Pathways to STEM</small></figcaption></figure>
+    </div>
+  </div>
   <div class="hero">
     <div class="copy">
       <p class="eyebrow">Summer 2027 · For DC rising seniors</p>
@@ -437,21 +456,21 @@ details.week[open] summary::after{content:"+";transform:rotate(45deg)}
   </div>
 
   <div class="weeks reveal">
-    <details class="week">
+    <details class="week" name="weeks">
       <summary><span class="wk-num">01</span><span class="wk-head"><span class="when">Weeks 1–3</span><b>College and career exposure</b><small>Hands-on STEM projects and visits with working professionals.</small></span></summary>
       <div class="wk-body">
         <p>Students explore careers across engineering, mathematics, medicine and healthcare. Each week combines hands-on projects with conversations with people who do the work.</p>
         <ul><li>Individual and small-group STEM projects with a finished product each week</li><li>Master classes and site visits with STEM professionals</li><li>Work-readiness skills: teamwork, professional communication, presenting</li></ul>
       </div>
     </details>
-    <details class="week">
+    <details class="week" name="weeks">
       <summary><span class="wk-num">02</span><span class="wk-head"><span class="when">Week 4</span><b>Employer-designed internship</b><small>Solve a real challenge and present it to the employer.</small></span></summary>
       <div class="wk-body">
         <p>Students put what they learned to work on a project-based challenge written by an employer partner. Teams research, build and test a solution over the week.</p>
         <ul><li>A real problem from a real employer</li><li>Mentoring and feedback from the employer's team</li><li>A culminating presentation to the employer on how the team solved the challenge</li></ul>
       </div>
     </details>
-    <details class="week">
+    <details class="week" name="weeks">
       <summary><span class="wk-num">03</span><span class="wk-head"><span class="when">Week 5</span><b>Ivy League college tour</b><small>Charter bus to five Ivy League campuses. One parent may ride along.</small></span></summary>
       <div class="wk-body">
         <p>A Northeast and New England tour for students preparing for an Ivy League education. At each campus, students see where STEM is taught and researched, hear from admissions, and picture themselves as applicants.</p>
@@ -459,7 +478,7 @@ details.week[open] summary::after{content:"+";transform:rotate(45deg)}
         <p style="margin-top:12px"><a href="#tour">See the campuses and the route →</a></p>
       </div>
     </details>
-    <details class="week">
+    <details class="week" name="weeks">
       <summary><span class="wk-num">04</span><span class="wk-head"><span class="when">Week 6 &amp; senior fall</span><b>Preparing to apply</b><small>Requirements, essays, recommendations and financial aid.</small></span></summary>
       <div class="wk-body">
         <p>Students return to school in the fall with a college list, a timeline and the pieces of a strong application already underway.</p>
@@ -861,6 +880,9 @@ details.week[open] summary::after{content:"+";transform:rotate(45deg)}
   /* Paste the online interest form or application link here when it is ready. */
   var INTEREST_FORM_URL = "";
 
+  /* Paste each testimonial's YouTube link here (any youtube.com or youtu.be link works). */
+  var VIDEOS = { nyc: "", gatech: "" };
+
   var pages = ["home","eligibility","parents","tour","path"];
   var reduceMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.documentElement.classList.add("js");
@@ -889,6 +911,28 @@ details.week[open] summary::after{content:"+";transform:rotate(45deg)}
       a.href = INTEREST_FORM_URL; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Apply now";
     });
   }
+
+  /* testimonial videos: show the section once at least one link is filled in */
+  function ytId(u){ var m = String(u).match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/); return m ? m[1] : (/^[\w-]{11}$/.test(u) ? u : ""); }
+  var anyVideo = false;
+  document.querySelectorAll("[data-video]").forEach(function(box){
+    var id = ytId(VIDEOS[box.getAttribute("data-video")] || "");
+    if (!id){ box.parentNode.hidden = true; return; }
+    anyVideo = true;
+    var f = document.createElement("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/" + id + "?rel=0";
+    f.title = box.parentNode.querySelector("figcaption").firstChild.textContent + " video";
+    f.loading = "lazy"; f.allowFullscreen = true;
+    f.allow = "accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen";
+    box.appendChild(f);
+  });
+  if (anyVideo) document.getElementById("videos").hidden = false;
+
+  /* weeks accordion: opening one row closes the others */
+  var weeks = document.querySelectorAll("details.week");
+  weeks.forEach(function(d){ d.addEventListener("toggle", function(){
+    if (d.open) weeks.forEach(function(o){ if (o !== d) o.open = false; });
+  }); });
 
   var elig = document.querySelectorAll(".elig"), res = document.getElementById("eligResult");
   function checkElig(){
