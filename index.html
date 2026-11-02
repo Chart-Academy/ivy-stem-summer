@@ -204,6 +204,84 @@ footer{border-top:1px solid var(--line);background:var(--surface);padding-block:
 footer .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;color:var(--muted);font-size:15px}
 footer b{color:var(--ink);font-family:var(--display);font-size:17px}
 
+/* week boxes (home) */
+.weeks{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+@media (max-width:760px){.weeks{grid-template-columns:1fr}}
+details.week{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:0;transition:border-color .2s, box-shadow .2s}
+details.week:hover{border-color:var(--blue)}
+details.week[open]{border-color:var(--blue);box-shadow:0 10px 30px -18px rgba(21,27,51,.45)}
+details.week summary{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:22px 22px;font:inherit}
+details.week summary::-webkit-details-marker{display:none}
+details.week summary::after{content:"+";width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--red-soft);color:var(--red);font:700 22px/1 var(--body);transition:transform .25s}
+details.week[open] summary::after{content:"+";transform:rotate(45deg)}
+.wk-num{font:800 44px/0.9 var(--display);color:var(--blue)}
+.wk-head{display:grid;gap:5px;min-width:0}
+.wk-head .when{font:700 12.5px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+.wk-head b{font:800 1.3rem/1.15 var(--display)}
+.wk-head small{color:var(--muted);font-size:15px;line-height:1.45}
+.wk-body{padding:0 22px 24px;border-top:1px dashed var(--line);margin:0 22px;padding-inline:0;padding-top:16px;animation:drop .3s ease}
+.wk-body p{color:var(--muted);margin:0;max-width:none}
+.wk-body ul{margin:10px 0 0;padding-left:20px;color:var(--muted)}
+.wk-body li{margin:5px 0}
+@keyframes drop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* tour teaser (home) */
+.teaser{display:grid;grid-template-columns:1fr 1.2fr;gap:28px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:28px}
+@media (max-width:860px){.teaser{grid-template-columns:1fr}}
+.teaser .sec-head{gap:10px}
+.crest-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.crest-row a{display:grid;justify-items:center;gap:6px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;text-align:center}
+.crest-row a:hover .crest{transform:translateY(-4px)}
+@media (max-width:520px){.crest-row{grid-template-columns:repeat(3,1fr)}}
+
+/* crest badges */
+.crest{width:64px;height:76px;display:block;transition:transform .2s}
+.crest text{font-family:var(--display);font-weight:800}
+
+/* tour page */
+.bus-scene{background:linear-gradient(180deg, var(--blue-soft), var(--surface));border:1px solid var(--line);border-radius:24px;overflow:hidden}
+.bus-scene svg{width:100%;height:auto;display:block}
+.bus-drive{animation:drive 11s linear infinite}
+@keyframes drive{from{transform:translateX(-340px)}to{transform:translateX(1100px)}}
+.wheel{transform-box:fill-box;transform-origin:center;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cloud{animation:float 30s linear infinite}
+@keyframes float{from{transform:translateX(0)}to{transform:translateX(-200px)}}
+.colleges{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media (max-width:760px){.colleges{grid-template-columns:1fr}}
+.college{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;transition:transform .2s, box-shadow .2s}
+.college:hover{transform:translateY(-4px);box-shadow:0 16px 36px -22px rgba(21,27,51,.5)}
+.college .photo{position:relative;aspect-ratio:16/9;background:var(--blue-soft)}
+.college .photo img{width:100%;height:100%;object-fit:cover;display:block}
+.college .photo .stop-no{position:absolute;top:14px;left:14px;background:var(--blue-ink);color:#fff;font:800 14px/1 var(--display);padding:8px 12px;border-radius:999px}
+.college .body{padding:0 22px 22px;display:grid;gap:10px;align-content:start}
+.college .top{display:flex;gap:14px;align-items:flex-start;margin-top:-34px;position:relative}
+.college .top > div{padding-top:42px;min-width:0}
+.college .top .crest{flex:none;filter:drop-shadow(0 4px 8px rgba(0,0,0,.25))}
+.college h3{font-size:1.4rem}
+.college .city{color:var(--muted);font-size:14.5px}
+.college p{color:var(--muted);font-size:15.5px}
+.college .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.college .links a{font:700 14.5px/1 var(--body);padding:11px 16px;border-radius:999px;text-decoration:none;border:2px solid var(--blue);color:var(--blue)}
+.college .links a.go{background:var(--blue-ink);border-color:var(--blue-ink);color:#fff}
+.college .links a:hover{filter:brightness(1.1)}
+.credits{font-size:13px;color:var(--muted)}
+.credits a{color:var(--muted)}
+
+/* SYEP */
+.req article.syep{grid-column:1 / -1;border:2px solid var(--red)}
+.syep-box{background:var(--red-soft);border-radius:24px;padding:30px;display:grid;gap:16px}
+.syep-box h2{font-size:clamp(1.5rem,3vw,2rem)}
+.syep-box ol{margin:0;padding-left:22px;display:grid;gap:8px}
+.syep-box .note{color:var(--ink);opacity:.8}
+
+/* scroll-in motion */
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease}
+.js .reveal.in{opacity:1;transform:none}
+.pin{animation:bob 2.4s ease-in-out infinite}
+.pin:nth-of-type(2){animation-delay:.3s}.pin:nth-of-type(3){animation-delay:.6s}.pin:nth-of-type(4){animation-delay:.9s}
+@keyframes bob{50%{transform:translateY(-5px)}}
+
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
 </style>
 <!--ARTIFACT-HEAD-END-->
@@ -220,10 +298,24 @@ footer b{color:var(--ink);font-family:var(--display);font-size:17px}
       <a href="#home">Home</a>
       <a href="#eligibility">Student Eligibility</a>
       <a href="#parents">Parent Involvement</a>
+      <a href="#tour">College Tour</a>
       <a href="#path">Path to Apply</a>
     </nav>
   </div>
 </header>
+
+<!-- school crest badges (simple shields in each school's colors, not official logos) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <path id="shield" d="M4 4 H60 V36 C60 56 46 66 32 72 C18 66 4 56 4 36 Z"/>
+    <path id="shield-in" d="M9 9 H55 V36 C55 52 44 61 32 66 C20 61 9 52 9 36 Z" fill="none" stroke="#FFFFFF" stroke-width="2" opacity=".7"/>
+  </defs>
+  <symbol id="crest-yale" viewBox="0 0 64 76"><use href="#shield" fill="#00356B"/><use href="#shield-in"/><text x="32" y="47" text-anchor="middle" font-size="30" fill="#FFFFFF">Y</text></symbol>
+  <symbol id="crest-brown" viewBox="0 0 64 76"><use href="#shield" fill="#4E3629"/><rect x="4" y="4" width="56" height="12" fill="#C00404"/><use href="#shield-in"/><text x="32" y="51" text-anchor="middle" font-size="30" fill="#FFFFFF">B</text></symbol>
+  <symbol id="crest-harvard" viewBox="0 0 64 76"><use href="#shield" fill="#A51C30"/><use href="#shield-in"/><text x="32" y="47" text-anchor="middle" font-size="30" fill="#FFFFFF">H</text></symbol>
+  <symbol id="crest-dartmouth" viewBox="0 0 64 76"><use href="#shield" fill="#00693E"/><use href="#shield-in"/><text x="32" y="47" text-anchor="middle" font-size="30" fill="#FFFFFF">D</text></symbol>
+  <symbol id="crest-columbia" viewBox="0 0 64 76"><use href="#shield" fill="#B9D9EB"/><path d="M9 9 H55 V36 C55 52 44 61 32 66 C20 61 9 52 9 36 Z" fill="none" stroke="#1D4F91" stroke-width="2" opacity=".6"/><text x="32" y="47" text-anchor="middle" font-size="30" fill="#1D4F91">C</text></symbol>
+</svg>
 
 <main>
 <!-- ================= HOME ================= -->
@@ -236,7 +328,7 @@ footer b{color:var(--ink);font-family:var(--display);font-size:17px}
       <p class="lead">A six-week summer program for DC high school juniors who love STEM and plan to attend a four-year college. Explore careers, solve a real employer challenge, tour five Ivy League universities, and leave ready to apply this fall.</p>
       <div class="btns">
         <a class="btn primary js-interest" href="#eligibility">Check eligibility</a>
-        <a class="btn ghost" href="#path">See the path to apply</a>
+        <a class="btn ghost" href="#tour">See the college tour</a>
       </div>
       <div class="facts"><span>Six weeks</span><span>Five Ivy League campuses</span><span>One parent may join the tour</span></div>
     </div>
@@ -301,97 +393,100 @@ footer b{color:var(--ink);font-family:var(--display);font-size:17px}
     </div>
   </div>
 
-  <div class="sec-head">
+  <div class="sec-head reveal">
     <p class="eyebrow">The program</p>
     <h2>Four stops on one road to college</h2>
     <p class="lead">Each part of the summer builds on the last. Students spend six weeks moving from exploring STEM careers to standing on Ivy League campuses, then return to school with a plan and a timeline to apply.</p>
   </div>
 
-  <div class="road-wrap">
-    <svg class="road-svg" viewBox="0 0 1000 170" role="img" aria-label="A winding road with four numbered stops: College and Career Exposure, Internship, Ivy League College Tour, and Preparing to Apply">
-      <path d="M10 120 C 120 120, 150 50, 260 50 S 400 130, 510 120 S 640 40, 760 50 S 900 130, 990 110" fill="none" stroke="var(--road)" stroke-width="34" stroke-linecap="round"/>
+  <div class="road-wrap reveal">
+    <svg class="road-svg" viewBox="0 0 1000 170" role="img" aria-label="Students walking along a winding road with four numbered stops: College and Career Exposure, Internship, Ivy League College Tour, and Preparing to Apply">
+      <path id="road" d="M10 120 C 120 120, 150 50, 260 50 S 400 130, 510 120 S 640 40, 760 50 S 900 130, 990 110" fill="none" stroke="var(--road)" stroke-width="34" stroke-linecap="round"/>
       <path d="M10 120 C 120 120, 150 50, 260 50 S 400 130, 510 120 S 640 40, 760 50 S 900 130, 990 110" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="14 12"/>
+      <!-- students walking the road -->
+      <g class="walkers">
+        <g><animateMotion dur="20s" repeatCount="indefinite" begin="0s"><mpath href="#road"/></animateMotion>
+          <g transform="translate(0 13) scale(1.5)"><g><animateTransform attributeName="transform" type="translate" values="0 0;0 -3;0 0" dur=".5s" repeatCount="indefinite"/>
+            <path d="M-3 0 v-9 M3 0 v-9" stroke="#151B33" stroke-width="3.5" stroke-linecap="round"/><rect x="-11" y="-21" width="6" height="11" rx="2" fill="#D91F2C"/><rect x="-7" y="-23" width="14" height="15" rx="5" fill="#F2C14E"/><circle cy="-29" r="9" fill="#241A14"/><circle cy="-28" r="6" fill="#8D5524"/></g></g></g>
+        <g><animateMotion dur="20s" repeatCount="indefinite" begin="-4s"><mpath href="#road"/></animateMotion>
+          <g transform="translate(0 13) scale(1.5)"><g><animateTransform attributeName="transform" type="translate" values="0 0;0 -3;0 0" dur=".5s" begin="-.2s" repeatCount="indefinite"/>
+            <path d="M-3 0 v-9 M3 0 v-9" stroke="#151B33" stroke-width="3.5" stroke-linecap="round"/><rect x="-7" y="-23" width="14" height="15" rx="5" fill="#D91F2C"/><path d="M-8 -24 c-1-10 4-13 8-13 s9 3 8 13 z" fill="#1E6F78"/><circle cy="-29" r="5.5" fill="#C68642"/></g></g></g>
+        <g><animateMotion dur="20s" repeatCount="indefinite" begin="-8s"><mpath href="#road"/></animateMotion>
+          <g transform="translate(0 13) scale(1.5)"><g><animateTransform attributeName="transform" type="translate" values="0 0;0 -3;0 0" dur=".5s" begin="-.1s" repeatCount="indefinite"/>
+            <path d="M-3 0 v-9 M3 0 v-9" stroke="#151B33" stroke-width="3.5" stroke-linecap="round"/><rect x="-7" y="-23" width="14" height="15" rx="5" fill="#FFFFFF" stroke="#C9D0E3"/><path d="M5 -32 c5 2 6 8 3 12" stroke="#7A4A1E" stroke-width="3" fill="none" stroke-linecap="round"/><circle cy="-29" r="6" fill="#F1C27D"/><path d="M-6 -30 c0-6 3-8 6-8 s6 2 6 8 c-2-3-4-4-6-4 s-4 1-6 4z" fill="#7A4A1E"/></g></g></g>
+        <g><animateMotion dur="20s" repeatCount="indefinite" begin="-12s"><mpath href="#road"/></animateMotion>
+          <g transform="translate(0 13) scale(1.5)"><g><animateTransform attributeName="transform" type="translate" values="0 0;0 -3;0 0" dur=".5s" begin="-.3s" repeatCount="indefinite"/>
+            <path d="M-3 0 v-9 M3 0 v-9" stroke="#151B33" stroke-width="3.5" stroke-linecap="round"/><rect x="-11" y="-21" width="6" height="11" rx="2" fill="#3955A5"/><rect x="-7" y="-23" width="14" height="15" rx="5" fill="#1E6F78"/><circle cy="-29" r="6" fill="#E0AC69"/><path d="M-6 -30 c0-5 3-7 6-7 s6 2 6 7 c-2-2-4-3-6-3 s-4 1-6 3z" fill="#16161A"/></g></g></g>
+        <g><animateMotion dur="20s" repeatCount="indefinite" begin="-16s"><mpath href="#road"/></animateMotion>
+          <g transform="translate(0 13) scale(1.5)"><g><animateTransform attributeName="transform" type="translate" values="0 0;0 -3;0 0" dur=".5s" begin="-.4s" repeatCount="indefinite"/>
+            <path d="M-3 0 v-9 M3 0 v-9" stroke="#151B33" stroke-width="3.5" stroke-linecap="round"/><rect x="-7" y="-23" width="14" height="15" rx="5" fill="#3955A5"/><circle cy="-29" r="6" fill="#6B4226"/><path d="M-7 -30 c-1-7 3-10 7-10 s8 3 7 10 M-6 -31 v9 M6 -31 v9" stroke="#1B1B1F" stroke-width="3" fill="none" stroke-linecap="round"/></g></g></g>
+      </g>
       <g font-family="var(--display)" font-weight="800" font-size="26" text-anchor="middle">
-        <g transform="translate(130 92)"><path d="M0 -60 c-26 0-40 18-40 38 c0 26 40 62 40 62 s40-36 40-62 c0-20-14-38-40-38z" fill="var(--red)"/><circle cy="-22" r="22" fill="#FFFFFF"/><text y="-13" fill="var(--red)">1</text></g>
-        <g transform="translate(375 98)"><path d="M0 -60 c-26 0-40 18-40 38 c0 26 40 62 40 62 s40-36 40-62 c0-20-14-38-40-38z" fill="var(--red)"/><circle cy="-22" r="22" fill="#FFFFFF"/><text y="-13" fill="var(--red)">2</text></g>
-        <g transform="translate(625 80)"><path d="M0 -60 c-26 0-40 18-40 38 c0 26 40 62 40 62 s40-36 40-62 c0-20-14-38-40-38z" fill="var(--red)"/><circle cy="-22" r="22" fill="#FFFFFF"/><text y="-13" fill="var(--red)">3</text></g>
-        <g transform="translate(875 96)"><path d="M0 -60 c-26 0-40 18-40 38 c0 26 40 62 40 62 s40-36 40-62 c0-20-14-38-40-38z" fill="var(--red)"/><circle cy="-22" r="22" fill="#FFFFFF"/><text y="-13" fill="var(--red)">4</text></g>
+        <g transform="translate(130 92)"><g class="pin"><path d="M0 -60 c-26 0-40 18-40 38 c0 26 40 62 40 62 s40-36 40-62 c0-20-14-38-40-38z" fill="var(--red)"/><circle cy="-22" r="22" fill="#FFFFFF"/><text y="-13" fill="var(--red)">1</text></g></g>
+        <g transform="translate(375 98)"><g class="pin" style="animation-delay:.3s"><path d="M0 -60 c-26 0-40 18-40 38 c0 26 40 62 40 62 s40-36 40-62 c0-20-14-38-40-38z" fill="var(--red)"/><circle cy="-22" r="22" fill="#FFFFFF"/><text y="-13" fill="var(--red)">2</text></g></g>
+        <g transform="translate(625 80)"><g class="pin" style="animation-delay:.6s"><path d="M0 -60 c-26 0-40 18-40 38 c0 26 40 62 40 62 s40-36 40-62 c0-20-14-38-40-38z" fill="var(--red)"/><circle cy="-22" r="22" fill="#FFFFFF"/><text y="-13" fill="var(--red)">3</text></g></g>
+        <g transform="translate(875 96)"><g class="pin" style="animation-delay:.9s"><path d="M0 -60 c-26 0-40 18-40 38 c0 26 40 62 40 62 s40-36 40-62 c0-20-14-38-40-38z" fill="var(--red)"/><circle cy="-22" r="22" fill="#FFFFFF"/><text y="-13" fill="var(--red)">4</text></g></g>
       </g>
     </svg>
     <div class="stops">
-      <div class="stop"><span class="when">Weeks 1–3</span><h3>College &amp; Career Exposure</h3><p>Hands-on STEM projects, completed on your own and in small teams, plus visits with working engineers, scientists and health professionals.</p></div>
-      <div class="stop"><span class="when">Week 4</span><h3>Internship</h3><p>Solve a real challenge designed by an employer, then present your solution to that employer.</p></div>
-      <div class="stop"><span class="when">Week 5</span><h3>Ivy League College Tour</h3><p>Travel by charter bus to Yale, Brown, Harvard, Dartmouth and Columbia. One parent may ride along.</p></div>
-      <div class="stop"><span class="when">Week 6 &amp; senior fall</span><h3>Preparing to Apply</h3><p>Admissions requirements, the application, essays and letters of recommendation, with support until you submit.</p></div>
+      <div class="stop"><span class="when">Weeks 1–3</span><h3>College &amp; Career Exposure</h3></div>
+      <div class="stop"><span class="when">Week 4</span><h3>Internship</h3></div>
+      <div class="stop"><span class="when">Week 5</span><h3>Ivy League College Tour</h3></div>
+      <div class="stop"><span class="when">Week 6 &amp; senior fall</span><h3>Preparing to Apply</h3></div>
     </div>
   </div>
 
-  <div>
-    <div class="detail">
-      <div class="num">01<small>Weeks 1–3</small></div>
-      <div><h3>College and career exposure</h3>
+  <div class="weeks reveal">
+    <details class="week">
+      <summary><span class="wk-num">01</span><span class="wk-head"><span class="when">Weeks 1–3</span><b>College and career exposure</b><small>Hands-on STEM projects and visits with working professionals.</small></span></summary>
+      <div class="wk-body">
         <p>Students explore careers across engineering, mathematics, medicine and healthcare. Each week combines hands-on projects with conversations with people who do the work.</p>
         <ul><li>Individual and small-group STEM projects with a finished product each week</li><li>Master classes and site visits with STEM professionals</li><li>Work-readiness skills: teamwork, professional communication, presenting</li></ul>
       </div>
-    </div>
-    <div class="detail">
-      <div class="num">02<small>Week 4</small></div>
-      <div><h3>Employer-designed internship</h3>
+    </details>
+    <details class="week">
+      <summary><span class="wk-num">02</span><span class="wk-head"><span class="when">Week 4</span><b>Employer-designed internship</b><small>Solve a real challenge and present it to the employer.</small></span></summary>
+      <div class="wk-body">
         <p>Students put what they learned to work on a project-based challenge written by an employer partner. Teams research, build and test a solution over the week.</p>
         <ul><li>A real problem from a real employer</li><li>Mentoring and feedback from the employer's team</li><li>A culminating presentation to the employer on how the team solved the challenge</li></ul>
       </div>
-    </div>
-    <div class="detail">
-      <div class="num">03<small>Week 5</small></div>
-      <div><h3>Ivy League college tour</h3>
+    </details>
+    <details class="week">
+      <summary><span class="wk-num">03</span><span class="wk-head"><span class="when">Week 5</span><b>Ivy League college tour</b><small>Charter bus to five Ivy League campuses. One parent may ride along.</small></span></summary>
+      <div class="wk-body">
         <p>A Northeast and New England tour for students preparing for an Ivy League education. At each campus, students see where STEM is taught and researched, hear from admissions, and picture themselves as applicants.</p>
-        <ul><li>Five Ivy League universities in one week</li><li>Charter bus travel and hotel rooms provided</li><li>One parent or guardian may join their student at no cost for the bus and room</li></ul>
+        <ul><li>Yale, Brown, Harvard, Dartmouth and Columbia in one week</li><li>Charter bus travel and hotel rooms provided</li><li>One parent or guardian may join their student at no cost for the bus and room</li></ul>
+        <p style="margin-top:12px"><a href="#tour">See the campuses and the route →</a></p>
       </div>
-    </div>
-    <div class="detail">
-      <div class="num">04<small>Week 6 and senior fall</small></div>
-      <div><h3>Preparing to apply</h3>
+    </details>
+    <details class="week">
+      <summary><span class="wk-num">04</span><span class="wk-head"><span class="when">Week 6 &amp; senior fall</span><b>Preparing to apply</b><small>Requirements, essays, recommendations and financial aid.</small></span></summary>
+      <div class="wk-body">
         <p>Students return to school in the fall with a college list, a timeline and the pieces of a strong application already underway.</p>
         <ul><li>Admissions requirements and what selective colleges look for</li><li>Common App, personal essay and activities list</li><li>Requesting strong letters of recommendation</li><li>Financial aid: FAFSA, CSS Profile and fee waivers</li></ul>
         <p style="margin-top:12px"><a href="#path">Walk through the path to apply →</a></p>
       </div>
-    </div>
+    </details>
   </div>
 
-  <div class="tour">
+  <div class="teaser reveal">
     <div class="sec-head">
       <p class="eyebrow">Week 5 · The tour</p>
-      <h2>Five campuses across the Northeast</h2>
-      <p class="lead">The tour leaves DC by charter bus, works up through Connecticut, Rhode Island, Massachusetts and New Hampshire, and rounds out in New York City.</p>
-      <ol>
-        <li><div><b>Yale University</b><span>New Haven, Connecticut</span></div></li>
-        <li><div><b>Brown University</b><span>Providence, Rhode Island</span></div></li>
-        <li><div><b>Harvard University</b><span>Cambridge, Massachusetts</span></div></li>
-        <li><div><b>Dartmouth College</b><span>Hanover, New Hampshire</span></div></li>
-        <li><div><b>Columbia University</b><span>New York, New York</span></div></li>
-      </ol>
+      <h2>Five Ivy League campuses in one week</h2>
+      <p class="lead">Leave DC by charter bus and tour Yale, Brown, Harvard, Dartmouth and Columbia.</p>
+      <div class="btns"><a class="btn primary" href="#tour">See the college tour</a></div>
     </div>
-    <div class="tour-map">
-      <svg viewBox="40 50 820 790" role="img" aria-label="Map of the tour route from Washington, DC to Yale, Brown, Harvard, Dartmouth and Columbia, then back to DC">
-        <g stroke="var(--line)" stroke-width="1">
-          <path d="M40 200 H860 M40 400 H860 M40 600 H860 M40 800 H860 M240 50 V840 M440 50 V840 M640 50 V840"/>
-        </g>
-        <path d="M106 799 L554 455 L722 381 L753 304 L629 114 L444 528 L106 799" fill="none" stroke="var(--road)" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" opacity=".9"/>
-        <path d="M106 799 L554 455 L722 381 L753 304 L629 114 L444 528 L106 799" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="10 9"/>
-        <g font-family="var(--body)" font-weight="700" font-size="24" fill="var(--ink)">
-          <circle cx="106" cy="799" r="16" fill="var(--red)"/><text x="132" y="806">Washington, DC</text>
-          <circle cx="554" cy="455" r="20" fill="var(--blue-ink)" stroke="var(--surface)" stroke-width="4"/><text x="554" y="463" text-anchor="middle" fill="#FFFFFF" font-family="var(--display)" font-weight="800">1</text><text x="520" y="463" text-anchor="end">Yale</text>
-          <circle cx="722" cy="381" r="20" fill="var(--blue-ink)" stroke="var(--surface)" stroke-width="4"/><text x="722" y="389" text-anchor="middle" fill="#FFFFFF" font-family="var(--display)" font-weight="800">2</text><text x="752" y="420">Brown</text>
-          <circle cx="753" cy="304" r="20" fill="var(--blue-ink)" stroke="var(--surface)" stroke-width="4"/><text x="753" y="312" text-anchor="middle" fill="#FFFFFF" font-family="var(--display)" font-weight="800">3</text><text x="760" y="268" text-anchor="middle">Harvard</text>
-          <circle cx="629" cy="114" r="20" fill="var(--blue-ink)" stroke="var(--surface)" stroke-width="4"/><text x="629" y="122" text-anchor="middle" fill="#FFFFFF" font-family="var(--display)" font-weight="800">4</text><text x="660" y="122">Dartmouth</text>
-          <circle cx="444" cy="528" r="20" fill="var(--blue-ink)" stroke="var(--surface)" stroke-width="4"/><text x="444" y="536" text-anchor="middle" fill="#FFFFFF" font-family="var(--display)" font-weight="800">5</text><text x="410" y="536" text-anchor="end">Columbia</text>
-        </g>
-      </svg>
+    <div class="crest-row">
+      <a href="#tour"><svg class="crest" aria-hidden="true"><use href="#crest-yale"/></svg>Yale</a>
+      <a href="#tour"><svg class="crest" aria-hidden="true"><use href="#crest-brown"/></svg>Brown</a>
+      <a href="#tour"><svg class="crest" aria-hidden="true"><use href="#crest-harvard"/></svg>Harvard</a>
+      <a href="#tour"><svg class="crest" aria-hidden="true"><use href="#crest-dartmouth"/></svg>Dartmouth</a>
+      <a href="#tour"><svg class="crest" aria-hidden="true"><use href="#crest-columbia"/></svg>Columbia</a>
     </div>
   </div>
 
-  <div class="callout">
-    <div><h2>Ready to see if you qualify?</h2><p>The program is for DC juniors with a demonstrated interest in STEM and a plan to attend a four-year college or university.</p></div>
+  <div class="callout reveal">
+    <div><h2>Ready to see if you qualify?</h2><p>The program is for DC juniors who are eligible for the Marion S. Barry Summer Youth Employment Program (SYEP), have a demonstrated interest in STEM, and plan to attend a four-year college or university.</p></div>
     <div class="btns"><a class="btn primary" href="#eligibility">Student eligibility</a><a class="btn ghost" href="#parents">For parents</a></div>
   </div>
 </div>
@@ -403,7 +498,7 @@ footer b{color:var(--ink);font-family:var(--display);font-size:17px}
   <div class="intro">
     <p class="eyebrow">Student eligibility</p>
     <h1>Who this program is for</h1>
-    <p class="lead">We are looking for DC high school juniors who are curious about STEM, take challenging courses, and are preparing for an Ivy League or other highly selective college.</p>
+    <p class="lead">We are looking for DC high school juniors who are curious about STEM, take challenging courses, and are preparing for an Ivy League or other highly selective college. Every student must also be an eligible participant in DC's Summer Youth Employment Program (SYEP).</p>
   </div>
 
   <div class="req">
@@ -411,6 +506,21 @@ footer b{color:var(--ink);font-family:var(--display);font-size:17px}
     <article><span class="tag">2</span><h3>Attending a DC high school</h3><p>You attend a DC public or public charter high school. Students from schools with STEM programs and college-prep schools are especially encouraged to apply.</p></article>
     <article><span class="tag">3</span><h3>A demonstrated interest in STEM</h3><p>You can show it through your coursework, a STEM program or academy, clubs, competitions, research, internships or projects you have built.</p></article>
     <article><span class="tag">4</span><h3>Preparing for a four-year college</h3><p>You plan to attend a four-year college or university and have shown preparation toward an Ivy League education: rigorous classes, strong grades, and goals you can talk about.</p></article>
+    <article class="syep"><span class="tag">5</span><h3>An eligible SYEP student</h3><p>You must apply to the Mayor Marion S. Barry Summer Youth Employment Program (SYEP) and be found eligible through the DC Department of Employment Services. Secure your SYEP eligibility before the summer begins. Students who are not SYEP-eligible cannot take part.</p></article>
+  </div>
+
+  <div class="syep-box reveal">
+    <p class="eyebrow">Required · Do this first</p>
+    <h2>Secure your SYEP eligibility</h2>
+    <p>SYEP is DC's summer jobs program for residents ages 14 to 24. Your SYEP application is separate from this program's application, and both must be complete.</p>
+    <ol>
+      <li>Apply at <a href="https://summerjobs.dc.gov" target="_blank" rel="noopener">summerjobs.dc.gov</a> while the application is open. It usually opens in late January and closes in early March (in 2026 it ran January 26 to March 6).</li>
+      <li>Upload your eligibility documents, including proof of DC residency, proof of age, your Social Security number, proof that you can work in the United States, and parent consent if you are under 18.</li>
+      <li>Check your SYEP account until your eligibility is confirmed, and fix any document that is flagged.</li>
+      <li>Tell your counselor and The Chart Academy once you are found eligible.</li>
+    </ol>
+    <p class="note">Check <a href="https://summerjobs.dc.gov" target="_blank" rel="noopener">summerjobs.dc.gov</a> for the official 2027 dates and the full document checklist.</p>
+    <div class="btns"><a class="btn primary" href="https://summerjobs.dc.gov" target="_blank" rel="noopener">Go to summerjobs.dc.gov</a></div>
   </div>
 
   <div class="sec-head">
@@ -427,6 +537,7 @@ footer b{color:var(--ink);font-family:var(--display);font-size:17px}
     <label for="e4"><input type="checkbox" id="e4" class="elig"><span>I plan to attend a four-year college or university.</span></label>
     <label for="e5"><input type="checkbox" id="e5" class="elig"><span>I am interested in preparing for an Ivy League education.</span></label>
     <label for="e6"><input type="checkbox" id="e6" class="elig"><span>I can take part in all six weeks of the summer program.</span></label>
+    <label for="e7"><input type="checkbox" id="e7" class="elig"><span>I have applied to SYEP at summerjobs.dc.gov and am (or will be) found eligible.</span></label>
     <div class="result" id="eligResult" role="status">Check each statement that is true for you.</div>
   </div>
 
@@ -447,7 +558,7 @@ footer b{color:var(--ink);font-family:var(--display);font-size:17px}
   </div>
 
   <div class="callout">
-    <div><h2>How students are selected</h2><p>Students apply through their school with a transcript, a recommendation from a teacher or counselor, and a short essay about a problem they want to solve with STEM. Selected students complete a short interview.</p></div>
+    <div><h2>How students are selected</h2><p>Students must be SYEP-eligible, then apply through their school with a transcript, a recommendation from a teacher or counselor, and a short essay about a problem they want to solve with STEM. Selected students complete a short interview.</p></div>
     <div class="btns"><a class="btn primary js-interest" href="#path">Applications open soon</a></div>
   </div>
 </div>
@@ -482,10 +593,171 @@ footer b{color:var(--ink);font-family:var(--display);font-size:17px}
     <div class="sec-head" style="margin-bottom:8px"><h2>Questions parents ask</h2></div>
     <details><summary>Who can join the tour?</summary><p>One parent or legal guardian per student. Let us know early so we can plan bus seats and hotel rooms.</p></details>
     <details><summary>Do I have to come?</summary><p>No. Parent participation is optional. Students who travel without a parent are supervised by program staff at all times, and all staff are background-checked.</p></details>
+    <details><summary>Does my student need to be in SYEP?</summary><p>Yes. Every student must apply to DC's Summer Youth Employment Program at <a href="https://summerjobs.dc.gov" target="_blank" rel="noopener">summerjobs.dc.gov</a> and be found eligible. Students under 18 need a parent's consent, so please help your student gather their documents and finish the SYEP application before it closes.</p></details>
     <details><summary>Where will we stay?</summary><p>Each parent shares a hotel room with their own student. Students traveling without a parent room with other students of the same gender, with staff on the same floor.</p></details>
     <details><summary>What does my student need to do to attend the tour?</summary><p>The tour is part of a six-week program. Students are expected to take part in the exposure weeks and the internship week before the tour, and in the application preparation that follows.</p></details>
     <details><summary>How do I stay updated?</summary><p>Families receive a full itinerary, packing list and emergency contacts before the tour, plus updates during the trip.</p></details>
   </div>
+</div>
+</section>
+
+<!-- ================= COLLEGE TOUR ================= -->
+<section class="page" id="page-tour" data-page="tour" hidden>
+<div class="wrap">
+  <div class="intro">
+    <p class="eyebrow">Week 5 · College &amp; university tour</p>
+    <h1>Five Ivy League campuses in one week</h1>
+    <p class="lead">The tour leaves DC by charter bus, works up through Connecticut, Rhode Island, Massachusetts and New Hampshire, and rounds out in New York City. At every stop, students see where STEM is taught and researched, hear from admissions, and picture themselves as applicants.</p>
+    <div class="facts"><span>Charter bus from DC</span><span>Hotel rooms provided</span><span>One parent may join</span></div>
+  </div>
+
+  <div class="bus-scene" aria-hidden="true">
+    <svg viewBox="0 0 1000 270">
+      <g class="cloud" fill="#FFFFFF" opacity=".9">
+        <ellipse cx="180" cy="50" rx="46" ry="16"/><ellipse cx="210" cy="40" rx="30" ry="16"/>
+        <ellipse cx="620" cy="36" rx="52" ry="15"/><ellipse cx="650" cy="28" rx="28" ry="14"/>
+        <ellipse cx="960" cy="58" rx="44" ry="14"/><ellipse cx="1140" cy="44" rx="48" ry="15"/>
+      </g>
+      <!-- campus skyline -->
+      <g fill="var(--blue)" opacity=".28">
+        <!-- gothic towers -->
+        <path d="M40 190 V110 L52 96 L64 110 V190 Z M64 190 V130 H110 V190 Z M110 190 V100 L122 84 L134 100 V190 Z"/>
+        <!-- clock tower with spire -->
+        <path d="M230 190 V120 H290 V190 Z M244 120 V82 H276 V120 Z M250 82 L260 40 L270 82 Z"/>
+        <rect x="170" y="150" width="60" height="40"/><rect x="290" y="150" width="70" height="40"/>
+        <!-- columned dome -->
+        <path d="M420 190 V140 H560 V190 Z M440 140 C440 100 540 100 540 140 Z M486 104 h8 v-14 h-8z"/>
+        <g fill="var(--surface)" opacity=".7"><rect x="432" y="150" width="8" height="40"/><rect x="456" y="150" width="8" height="40"/><rect x="480" y="150" width="8" height="40"/><rect x="504" y="150" width="8" height="40"/><rect x="528" y="150" width="8" height="40"/></g>
+        <!-- brick halls -->
+        <path d="M600 190 V130 L640 108 L680 130 V190 Z M680 190 V146 H760 V190 Z"/>
+        <!-- church steeple -->
+        <path d="M800 190 V130 H850 V190 Z M812 130 V96 H838 V130 Z M816 96 V78 H834 V96 Z M820 78 L825 46 L830 78 Z"/>
+        <path d="M870 190 V150 H960 V190 Z"/>
+      </g>
+      <!-- trees -->
+      <g fill="#3E8E5A" opacity=".55"><circle cx="150" cy="176" r="18"/><circle cx="380" cy="172" r="22"/><circle cx="582" cy="176" r="18"/><circle cx="780" cy="174" r="20"/><circle cx="980" cy="176" r="18"/></g>
+      <!-- road -->
+      <rect x="0" y="190" width="1000" height="80" fill="#2A3458"/>
+      <path d="M0 232 H1000" stroke="#FFFFFF" stroke-width="4" stroke-dasharray="34 26" opacity=".8"/>
+      <!-- charter bus -->
+      <g class="bus-drive">
+        <g transform="translate(0 112)">
+          <path d="M8 18 C8 8 16 2 28 2 H262 C282 2 296 14 300 40 L306 86 C306 96 300 102 290 102 H16 C10 102 8 98 8 92 Z" fill="#FFFFFF" stroke="#C9D0E3" stroke-width="2"/>
+          <path d="M8 66 H304 L306 86 C306 96 300 102 290 102 H16 C10 102 8 98 8 92 Z" fill="#3955A5"/>
+          <path d="M8 60 H303" stroke="#D91F2C" stroke-width="6"/>
+          <g fill="#1B2547"><rect x="22" y="14" width="40" height="32" rx="5"/><rect x="70" y="14" width="40" height="32" rx="5"/><rect x="118" y="14" width="40" height="32" rx="5"/><rect x="166" y="14" width="40" height="32" rx="5"/><rect x="214" y="14" width="34" height="32" rx="5"/><path d="M256 12 H270 C284 12 292 24 295 46 H256 Z"/></g>
+          <!-- faces in the windows -->
+          <g><circle cx="42" cy="36" r="8" fill="#8D5524"/><circle cx="90" cy="36" r="8" fill="#F1C27D"/><circle cx="138" cy="36" r="8" fill="#C68642"/><circle cx="186" cy="36" r="8" fill="#6B4226"/><circle cx="231" cy="36" r="8" fill="#E0AC69"/></g>
+          <text x="157" y="83" text-anchor="middle" font-family="var(--display)" font-weight="800" font-size="14" fill="#FFFFFF" letter-spacing="1">IVY LEAGUE STEM SUMMER</text>
+          <rect x="296" y="72" width="10" height="8" rx="2" fill="#F2C14E"/>
+          <g transform="translate(66 102)"><g class="wheel"><circle r="17" fill="#151B33"/><circle r="8" fill="#C9D0E3"/><path d="M-8 0 H8 M0 -8 V8" stroke="#535C78" stroke-width="2.5"/></g></g>
+          <g transform="translate(248 102)"><g class="wheel"><circle r="17" fill="#151B33"/><circle r="8" fill="#C9D0E3"/><path d="M-8 0 H8 M0 -8 V8" stroke="#535C78" stroke-width="2.5"/></g></g>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="sec-head reveal">
+    <p class="eyebrow">The campuses</p>
+    <h2>Where we're headed</h2>
+    <p class="lead">Explore each university before the trip. Every school's website and admissions office open in a new tab.</p>
+  </div>
+
+  <div class="colleges">
+    <article class="college reveal">
+      <div class="photo"><img src="images/yale.jpg" alt="Phelps Gate and Old Campus at Yale University" loading="lazy"><span class="stop-no">Stop 1</span></div>
+      <div class="body">
+        <div class="top"><svg class="crest" aria-hidden="true"><use href="#crest-yale"/></svg><div><h3>Yale University</h3><div class="city">New Haven, Connecticut · Founded 1701</div></div></div>
+        <p>Students walk Old Campus, the heart of Yale College, then head up Science Hill, home to Yale's labs for engineering, physics, chemistry and biology.</p>
+        <div class="links"><a class="go" href="https://www.yale.edu" target="_blank" rel="noopener">Visit yale.edu</a><a href="https://admissions.yale.edu" target="_blank" rel="noopener">Admissions</a></div>
+      </div>
+    </article>
+    <article class="college reveal">
+      <div class="photo"><img src="images/brown.jpg" alt="The Main Green at Brown University" loading="lazy"><span class="stop-no">Stop 2</span></div>
+      <div class="body">
+        <div class="top"><svg class="crest" aria-hidden="true"><use href="#crest-brown"/></svg><div><h3>Brown University</h3><div class="city">Providence, Rhode Island · Founded 1764</div></div></div>
+        <p>Known for its Open Curriculum, which lets students design their own course of study. Brown is also home to a School of Engineering and the Warren Alpert Medical School.</p>
+        <div class="links"><a class="go" href="https://www.brown.edu" target="_blank" rel="noopener">Visit brown.edu</a><a href="https://admission.brown.edu" target="_blank" rel="noopener">Admissions</a></div>
+      </div>
+    </article>
+    <article class="college reveal">
+      <div class="photo"><img src="images/harvard.jpg" alt="Memorial Church in Harvard Yard at dusk" loading="lazy"><span class="stop-no">Stop 3</span></div>
+      <div class="body">
+        <div class="top"><svg class="crest" aria-hidden="true"><use href="#crest-harvard"/></svg><div><h3>Harvard University</h3><div class="city">Cambridge, Massachusetts · Founded 1636</div></div></div>
+        <p>The oldest college in the United States. Students tour Harvard Yard and learn about the John A. Paulson School of Engineering and Applied Sciences.</p>
+        <div class="links"><a class="go" href="https://www.harvard.edu" target="_blank" rel="noopener">Visit harvard.edu</a><a href="https://college.harvard.edu/admissions" target="_blank" rel="noopener">Admissions</a></div>
+      </div>
+    </article>
+    <article class="college reveal">
+      <div class="photo"><img src="images/dartmouth.jpg" alt="Baker Memorial Library on the Green at Dartmouth College" loading="lazy" style="object-position:center 30%"><span class="stop-no">Stop 4</span></div>
+      <div class="body">
+        <div class="top"><svg class="crest" aria-hidden="true"><use href="#crest-dartmouth"/></svg><div><h3>Dartmouth College</h3><div class="city">Hanover, New Hampshire · Founded 1769</div></div></div>
+        <p>A close-knit campus built around the Green, with the Thayer School of Engineering and the Geisel School of Medicine.</p>
+        <div class="links"><a class="go" href="https://home.dartmouth.edu" target="_blank" rel="noopener">Visit dartmouth.edu</a><a href="https://admissions.dartmouth.edu" target="_blank" rel="noopener">Admissions</a></div>
+      </div>
+    </article>
+    <article class="college reveal">
+      <div class="photo"><img src="images/columbia.jpg" alt="Low Memorial Library at Columbia University" loading="lazy"><span class="stop-no">Stop 5</span></div>
+      <div class="body">
+        <div class="top"><svg class="crest" aria-hidden="true"><use href="#crest-columbia"/></svg><div><h3>Columbia University</h3><div class="city">New York, New York · Founded 1754</div></div></div>
+        <p>An Ivy League campus in Manhattan's Morningside Heights, home to Columbia Engineering, the Fu Foundation School of Engineering and Applied Science.</p>
+        <div class="links"><a class="go" href="https://www.columbia.edu" target="_blank" rel="noopener">Visit columbia.edu</a><a href="https://undergrad.admissions.columbia.edu" target="_blank" rel="noopener">Admissions</a></div>
+      </div>
+    </article>
+  </div>
+
+  <div class="tour reveal">
+    <div class="sec-head">
+      <p class="eyebrow">The route</p>
+      <h2>DC to New England and back</h2>
+      <p class="lead">Follow the bus on its loop through the Northeast.</p>
+      <ol>
+        <li><div><b>Yale University</b><span>New Haven, Connecticut</span></div></li>
+        <li><div><b>Brown University</b><span>Providence, Rhode Island</span></div></li>
+        <li><div><b>Harvard University</b><span>Cambridge, Massachusetts</span></div></li>
+        <li><div><b>Dartmouth College</b><span>Hanover, New Hampshire</span></div></li>
+        <li><div><b>Columbia University</b><span>New York, New York</span></div></li>
+      </ol>
+    </div>
+    <div class="tour-map">
+      <svg viewBox="40 50 820 790" role="img" aria-label="Map of the tour route from Washington, DC to Yale, Brown, Harvard, Dartmouth and Columbia, then back to DC">
+        <g stroke="var(--line)" stroke-width="1">
+          <path d="M40 200 H860 M40 400 H860 M40 600 H860 M40 800 H860 M240 50 V840 M440 50 V840 M640 50 V840"/>
+        </g>
+        <path id="route" d="M106 799 L554 455 L722 381 L753 304 L629 114 L444 528 L106 799" fill="none" stroke="var(--road)" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" opacity=".9"/>
+        <path d="M106 799 L554 455 L722 381 L753 304 L629 114 L444 528 L106 799" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="10 9"/>
+        <g font-family="var(--body)" font-weight="700" font-size="24" fill="var(--ink)">
+          <circle cx="106" cy="799" r="16" fill="var(--red)"/><text x="132" y="806">Washington, DC</text>
+          <circle cx="554" cy="455" r="20" fill="var(--blue-ink)" stroke="var(--surface)" stroke-width="4"/><text x="554" y="463" text-anchor="middle" fill="#FFFFFF" font-family="var(--display)" font-weight="800">1</text><text x="520" y="463" text-anchor="end">Yale</text>
+          <circle cx="722" cy="381" r="20" fill="var(--blue-ink)" stroke="var(--surface)" stroke-width="4"/><text x="722" y="389" text-anchor="middle" fill="#FFFFFF" font-family="var(--display)" font-weight="800">2</text><text x="752" y="420">Brown</text>
+          <circle cx="753" cy="304" r="20" fill="var(--blue-ink)" stroke="var(--surface)" stroke-width="4"/><text x="753" y="312" text-anchor="middle" fill="#FFFFFF" font-family="var(--display)" font-weight="800">3</text><text x="760" y="268" text-anchor="middle">Harvard</text>
+          <circle cx="629" cy="114" r="20" fill="var(--blue-ink)" stroke="var(--surface)" stroke-width="4"/><text x="629" y="122" text-anchor="middle" fill="#FFFFFF" font-family="var(--display)" font-weight="800">4</text><text x="660" y="122">Dartmouth</text>
+          <circle cx="444" cy="528" r="20" fill="var(--blue-ink)" stroke="var(--surface)" stroke-width="4"/><text x="444" y="536" text-anchor="middle" fill="#FFFFFF" font-family="var(--display)" font-weight="800">5</text><text x="410" y="536" text-anchor="end">Columbia</text>
+        </g>
+        <!-- bus driving the route -->
+        <g>
+          <animateMotion dur="18s" repeatCount="indefinite"><mpath href="#route"/></animateMotion>
+          <circle r="24" fill="var(--red)" stroke="#FFFFFF" stroke-width="4"/>
+          <rect x="-13" y="-12" width="26" height="20" rx="4" fill="#FFFFFF"/>
+          <rect x="-9" y="-8" width="18" height="7" rx="1.5" fill="var(--red)"/>
+          <circle cx="-7" cy="10" r="3.5" fill="#FFFFFF"/><circle cx="7" cy="10" r="3.5" fill="#FFFFFF"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="callout reveal">
+    <div><h2>Parents are invited</h2><p>One parent or guardian may ride the bus and share a hotel room with their student at no cost. Families cover their own meals and personal spending.</p></div>
+    <div class="btns"><a class="btn primary" href="#parents">Parent involvement</a><a class="btn ghost" href="#eligibility">Student eligibility</a></div>
+  </div>
+
+  <p class="credits">Campus photos from Wikimedia Commons:
+    Yale by DimiTalen (<a href="https://commons.wikimedia.org/wiki/File:Old_Campus_Courtyard_and_Durfee_Hall,_Yale_University,_New_Haven,_2007.jpg" target="_blank" rel="noopener">CC0</a>);
+    Brown by Chris Rycroft (<a href="https://commons.wikimedia.org/wiki/File:Main_Green_at_Brown_University.jpg" target="_blank" rel="noopener">CC BY 2.0</a>);
+    Harvard by Sdkb (<a href="https://commons.wikimedia.org/wiki/File:Harvard_Yard,_February_2022_9.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a>);
+    Dartmouth by Ragesoss (<a href="https://commons.wikimedia.org/wiki/File:Baker_Memorial_Library_at_Dartmouth_College,_October_14,_2007.jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a>);
+    Columbia by BrOnXbOmBr21 (<a href="https://commons.wikimedia.org/wiki/File:Low_Library_Columbia_University_8-11-06.jpg" target="_blank" rel="noopener">CC BY 2.5</a>).
+    School badges are simple illustrations in each school's colors, not official logos. The Chart Academy is not affiliated with these universities.</p>
 </div>
 </section>
 
@@ -579,7 +851,7 @@ footer b{color:var(--ink);font-family:var(--display);font-size:17px}
 
 <footer>
   <div class="wrap">
-    <div><b>The Chart Academy</b><br>A program of the Center for Innovation, Research, and Transformation in Education (CIRTE)<br>5290 14th Street NW, Suite 718, Washington, DC</div>
+    <div><b>The Chart Academy</b><br>A program of the Center for Innovation, Research, and Transformation in Education (CIRTE)<br>529 14th Street NW, Washington, DC 20045</div>
     <div><a href="https://www.thechartacademy.com" target="_blank" rel="noopener">www.thechartacademy.com</a></div>
   </div>
 </footer>
@@ -589,13 +861,24 @@ footer b{color:var(--ink);font-family:var(--display);font-size:17px}
   /* Paste the online interest form or application link here when it is ready. */
   var INTEREST_FORM_URL = "";
 
-  var pages = ["home","eligibility","parents","path"];
+  var pages = ["home","eligibility","parents","tour","path"];
+  var reduceMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.documentElement.classList.add("js");
+
+  /* fade sections in as they scroll into view */
+  var io = ("IntersectionObserver" in window) && !reduceMotion ? new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, {rootMargin:"0px 0px -8% 0px"}) : null;
+  document.querySelectorAll(".reveal").forEach(function(el){ if (io) io.observe(el); else el.classList.add("in"); });
+
+  /* hold the walking students and the tour bus still for visitors who prefer less motion */
+  if (reduceMotion) document.querySelectorAll("svg").forEach(function(s){ if (s.pauseAnimations) s.pauseAnimations(); });
   function show(){
     var h = (location.hash || "#home").slice(1);
     if (pages.indexOf(h) < 0) h = "home";
     pages.forEach(function(p){ document.getElementById("page-"+p).hidden = (p !== h); });
     document.querySelectorAll("nav.tabs a").forEach(function(a){
-      if (a.getAttribute("href") === "#"+h) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
+      if (a.getAttribute("href") === "#"+h){ a.setAttribute("aria-current","page"); a.parentNode.scrollLeft = a.offsetLeft - 16; } else a.removeAttribute("aria-current");
     });
     window.scrollTo(0,0);
   }
